@@ -1,6 +1,2 @@
 .svn
-bin
-build
 .DS_Store
-*.tar.gz
-*.woa
