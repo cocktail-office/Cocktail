@@ -1,0 +1,446 @@
+<?xml version="1.0"?>
+
+<!-- ========================================================== -->
+<!--              Master Cocktail Ant build file                -->
+<!-- Servers as a facade to other buildfiles.                   -->
+<!-- "basedir" is cocktail project directory, not "build" where -->
+<!-- this files is located.                                     -->
+<!-- ========================================================== -->
+<project name="Cocktail" default="all" basedir="../..">
+
+    <import file="generic.xml" />
+
+    <property name="frameworks.wonder.jars"  value="ERJars" />
+    <property name="frameworks.wonder.core"  value="${frameworks.wonder.jars}/ERExtensions/ERPrototypes/JavaWOExtensions/WOLips" />
+    <property name="frameworks.system.core" value="JavaFoundation/JavaEOAccess/JavaEOControl/JavaWebObjects/JavaWOJSPServlet/JavaJDBCAdaptor/JavaXML/JavaDirectToWeb/JavaEOProject/JavaDTWGeneration" />
+
+    <target name="FwkCktlThemes.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlThemes" />
+            <param name="project.dir" value="Frameworks/FwkCktlThemes" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlWebApp.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlWebApp" />
+            <param name="project.dir" value="Frameworks/FwkCktlWebApp" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/ERJavaMail" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlSync.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlSync" />
+            <param name="project.dir" value="Frameworks/FwkCktlSync" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlDroitsUtils.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlDroitsUtils" />
+            <param name="project.dir" value="Frameworks/FwkCktlDroitsUtils" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlReporting.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlReporting" />
+            <param name="project.dir" value="Frameworks/FwkCktlReporting" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp" />
+        </antcall>
+    </target>
+
+    <target name="ServeurPlanningFwk.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="ServeurPlanningFwk" />
+            <param name="project.dir" value="Frameworks/ServeurPlanningFwk" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlPersonne.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlPersonne" />
+            <param name="project.dir" value="Frameworks/FwkCktlPersonne" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp/FwkCktlDroitsUtils" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlScol.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlScol" />
+            <param name="project.dir" value="Frameworks/FwkCktlScol" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp/FwkCktlPersonne" />
+        </antcall>
+    </target>
+
+    <target name="Scolarix0170145RFwk.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="Scolarix0170145RFwk" />
+            <param name="project.dir" value="Frameworks/Scolarix0170145RFwk" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp/FwkCktlPersonne/FwkCktlScol" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlGRH.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlGRH" />
+            <param name="project.dir" value="Frameworks/FwkCktlGRH" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlJefyAdmin.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlJefyAdmin" />
+            <param name="project.dir" value="Frameworks/FwkCktlJefyAdmin" />
+            <param name="project.sources.dir" value="Frameworks/FwkCktlJefyAdmin/src" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlReport.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlReport" />
+            <param name="project.dir" value="Frameworks/FwkCktlReport" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne" />
+        </antcall>
+    </target>
+
+    <target name="FwkGspot.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkGspot" />
+            <param name="project.dir" value="Frameworks/FwkGspot" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlCompta.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlCompta" />
+            <param name="project.dir" value="Frameworks/FwkCktlCompta" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp/FwkCktlJefyAdmin/FwkCktlDroitsUtils/FwkCktlPersonne" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlGed.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlGed" />
+            <param name="project.dir" value="Frameworks/FwkCktlGed" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/ERAttachment/FwkCktlWebApp" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlGediBus.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlGediBus" />
+            <param name="project.dir" value="Frameworks/FwkCktlGediBus" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/ERAttachment/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne/FwkCktlGed" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlEvenement.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlEvenement" />
+            <param name="project.dir" value="Frameworks/FwkCktlEvenement" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne/FwkCktlGediBus" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlAjaxWebExt.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlAjaxWebExt" />
+            <param name="project.dir" value="Frameworks/FwkCktlAjaxWebExt" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlThemes/FwkCktlWebApp" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlPersonneGuiAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlPersonneGuiAjax" />
+            <param name="project.dir" value="Frameworks/FwkCktlPersonneGuiAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne/FwkCktlAjaxWebExt" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlDroitsUtilsGuiAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlDroitsUtilsGuiAjax" />
+            <param name="project.dir" value="Frameworks/FwkCktlDroitsUtilsGuiAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne/FwkCktlAjaxWebExt/FwkCktlPersonneGuiAjax" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlGRHGuiAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlGRHGuiAjax" />
+            <param name="project.dir" value="Frameworks/FwkCktlGRHGuiAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlWebApp/FwkCktlPersonne/FwkCktlGRH/FwkCktlAjaxWebExt/FwkCktlPersonneGuiAjax" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlGedGuiAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlGedGuiAjax" />
+            <param name="project.dir" value="Frameworks/FwkCktlGedGuiAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/ERAttachment/Ajax/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlGed/FwkCktlAjaxWebExt" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlGediGuiAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlGediGuiAjax" />
+            <param name="project.dir" value="Frameworks/FwkCktlGediGuiAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/ERAttachment/Ajax/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlGed/FwkCktlGediBus/FwkCktlAjaxWebExt/FwkCktlGedGuiAjax" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlComptaGuiAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlComptaGuiAjax" />
+            <param name="project.dir" value="Frameworks/FwkCktlComptaGuiAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne/FwkCktlCompta/FwkCktlAjaxWebExt" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlEvenementGuiAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlGediGuiAjax" />
+            <param name="project.dir" value="Frameworks/FwkCktlGediGuiAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne/FwkCktlEvenement/FwkCktlAjaxWebExt/FwkCktlPersonneGuiAjax" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlGFCGuiAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlGFCGuiAjax" />
+            <param name="project.dir" value="Frameworks/FwkCktlGFCGuiAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlJefyAdmin/FwkCktlAjaxWebExt" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlReportingGuiAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlReportingGuiAjax" />
+            <param name="project.dir" value="Frameworks/FwkCktlReportingGuiAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlWebApp/FwkCktlReporting/FwkCktlAjaxWebExt" />
+        </antcall>
+    </target>
+
+    <target name="FwkCktlReportGuiAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCktlReportGuiAjax" />
+            <param name="project.dir" value="Frameworks/FwkCktlReportGuiAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlWebApp/FwkCktlDroitsUtils//FwkCktlReporting/FwkCktlPersonne/FwkCktlJefyAdmin/FwkCktlReport/FwkCktlAjaxWebExt/FwkCktlPersonneGuiAjax/FwkCktlGFCGuiAjax/FwkCktlReportingGuiAjax" />
+        </antcall>
+    </target>
+
+    <target name="ScolarixModulesFwk.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="ScolarixModulesFwk" />
+            <param name="project.dir" value="Frameworks/ScolarixModulesFwk" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlWebApp/FwkCktlPersonne/FwkCktlScol/FwkCktlAjaxWebExt" />
+        </antcall>
+    </target>
+
+    <target name="ScolariteModulesFwk.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="ScolariteModulesFwk" />
+            <param name="project.dir" value="Frameworks/ScolariteModulesFwk" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlThemes/FwkCktlWebApp/FwkCktlScol/FwkCktlAjaxWebExt" />
+        </antcall>
+    </target>
+
+    <target name="ScolarixModules0170145RFwk.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="ScolarixModulesFwk" />
+            <param name="project.dir" value="Frameworks/ScolarixModulesFwk" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlThemes/FwkCktlWebApp/FwkCktlScol/FwkCktlAjaxWebExt/ScolariteModulesFwk/Scolarix0170145RFwk" />
+        </antcall>
+    </target>
+
+    <target name="FwkCOWebApp.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCOWebApp" />
+            <param name="project.dir" value="Frameworks/FwkCOWebApp" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp" />
+        </antcall>
+    </target>
+
+    <target name="FwkCOBibasse.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCOBibasse" />
+            <param name="project.dir" value="Frameworks/FwkCOBibasse" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp/FwkCktlJefyAdmin/FwkCktlCompta" />
+        </antcall>
+    </target>
+
+    <target name="FwkCOAccords.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCOAccords" />
+            <param name="project.dir" value="Frameworks/FwkCOAccords" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne/FwkCktlJefyAdmin/FwkCktlCompta/FwkCktlEvenement/FwkCktlGed/FwkCktlGediBus/FwkCOBibasse" />
+        </antcall>
+    </target>
+
+    <target name="FwkCOAccordsGuiAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkCOAccordsGuiAjax" />
+            <param name="project.dir" value="Frameworks/FwkCOAccordsGuiAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne/FwkCktlJefyAdmin/FwkCOAccords/FwkCktlAjaxWebExt/FwkCktlPersonneGuiAjax" />
+        </antcall>
+    </target>
+
+    <target name="FwkGspotGUIAjax.all">
+        <antcall target="global.framework.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="FwkGspotGUIAjax" />
+            <param name="project.dir" value="Frameworks/FwkGspotGUIAjax" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/Ajax/FwkCktlThemes/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne/FwkGspot/FwkCktlAjaxWebExt/FwkCktlPersonneGuiAjax" />
+        </antcall>
+    </target>
+
+    <target name="AGrhum.all">
+        <antcall target="global.application.${build.action}" >
+            <param name="project.type" value="application" />
+            <param name="project.principal.class" value="org.cocktail.agrhum.serveur.Application" />
+            <param name="project.name" value="AGrhum" />
+            <param name="project.dir" value="Applications/AGrhum" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/ERPrototypes/ERAttachment/Ajax//FwkCktlThemes/FwkCktlWebApp/FwkCktlSync/FwkCktlDroitsUtils/FwkCktlPersonne/FwkCktlJefyAdmin/FwkCktlGRH/FwkCktlEvenement/FwkGspot/FwkCktlGed/FwkCktlGediBus/FwkCktlAjaxWebExt/FwkCktlPersonneGuiAjax/FwkCktlDroitsUtilsGuiAjax/FwkGspotGUIAjax/FwkCktlGRHGuiAjax" />
+            <param name="wo.local.root.bundles.embed" value="true" />
+            <param name="wo.system.root.bundles.embe" value="true" />
+            <param name="wo.external.root.bundles.embed" value="true" />
+        </antcall>
+    </target>
+
+    <target name="GspotPlus.all">
+        <antcall target="global.application.${build.action}" >
+            <param name="project.principal.class" value="" />
+            <param name="project.name" value="GspotPlus" />
+            <param name="project.dir" value="Applications/GspotPlus" />
+            <param name="wo.external.root.bundles" value="${frameworks.wonder.core}/ERPrototypes/ERAttachment/Ajax//FwkCktlThemes/FwkCktlWebApp/FwkCktlDroitsUtils/FwkCktlPersonne/FwkGspot/FwkCktlAjaxWebExt/FwkCktlPersonneGuiAjax/FwkGspotGUIAjax" />
+            <param name="wo.local.root.bundles.embed" value="true" />
+            <param name="wo.system.root.bundles.embed" value="true" />
+            <param name="wo.external.root.bundles.embed" value="true" />
+        </antcall>
+    </target>
+
+
+    <target name="common.frameworks.all" depends="FwkCktlThemes.all, FwkCktlWebApp.all, FwkCktlSync.all, FwkCktlDroitsUtils.all, FwkCktlReporting.all, ServeurPlanningFwk.all, FwkCktlPersonne.all, FwkCktlScol.all, Scolarix0170145RFwk.all, FwkCktlGRH.all, FwkCktlJefyAdmin.all, FwkCktlReport.all, FwkGspot.all, FwkCktlCompta.all, FwkCktlGed.all, FwkCktlGediBus.all, FwkCktlEvenement.all, FwkCktlAjaxWebExt.all, FwkCktlPersonneGuiAjax.all, FwkCktlDroitsUtilsGuiAjax.all, FwkCktlGRHGuiAjax.all, FwkCktlGedGuiAjax.all, FwkCktlGediGuiAjax.all, FwkCktlComptaGuiAjax.all, FwkCktlEvenementGuiAjax.all, FwkCktlGFCGuiAjax.all, FwkCktlReportingGuiAjax.all, FwkCktlReportGuiAjax.all, ScolarixModulesFwk.all, ScolariteModulesFwk.all, ScolarixModules0170145RFwk.all, FwkCOWebApp.all, FwkCOBibasse.all, FwkCOAccords.all, FwkCOAccordsGuiAjax.all, FwkGspotGUIAjax.all" />
+
+    <target name="common.applications.all" depends="AGrhum.all,GspotPlus.all" />
+
+	<target name="common.examples.all" depends=""/>
+
+	<target name="frameworks.all" depends="common.frameworks.all" />
+    <target name="applications.all" depends="common.applications.all"/>
+    <target name="examples.all" depends="common.examples.all"/>
+    <target name="tests.all" depends=""/>
+
+    <target name="all.run" depends="frameworks.all, applications.all, examples.all"/>
+
+    <target name="dist">
+        <!-- do dist target on known frameworks -->
+        <antcall target="all.run" >
+            <param name="dist.base" value="${dist.base}" />
+            <param name="project.version" value="${project.version}" />
+            <param name="dist.dir" value="${dist.base}/cocktailr-${project.version}"/>
+            <param name="build.action" value="dist" />
+        </antcall>
+
+        <!-- copy the whole source to src -->
+        <copy todir="${dist.base}/Cocktail-src-${project.version}"
+                includeEmptyDirs="false" preservelastmodified="true">
+            <fileset dir=".">
+                <include name="**/*" />
+                <exclude name="**/null*" />
+                <exclude name="**/.git/**" />
+                <exclude name="**/.svn/*" />
+             	<exclude name="**/dist/**"/>
+             	<exclude name="**/bin/**"/>
+             	<exclude name="**/build/**"/>
+             	<include name="**/Build/build/**"/>
+             	<exclude name="**/target/**"/>
+            </fileset>
+        </copy>
+
+        <tar tarfile="${dist.base}/Cocktail-src-${project.version}.tar" longfile="gnu">
+            <tarfileset dir="${dist.base}/Cocktail-src-${project.version}">
+            </tarfileset>
+        </tar>
+
+        <gzip src="${dist.base}/Cocktail-src-${project.version}.tar"
+            zipfile="${dist.base}/Cocktail-src-${project.version}.tgz"/>
+
+        <delete file="${dist.base}/Cocktail-src-${project.version}.tar"/>
+        <!-- zip destfile="${dist.base}/Wonder-${project.version}.zip"
+            basedir="${dist.base}/wonder-${project.version}"
+            excludes="**/CVS/*, **/dist/**" / -->
+    </target>
+
+
+    <target name="build">
+        <antcall target="all.run" >
+            <param name="build.action" value="build" />
+        </antcall>
+    </target>
+
+    <target name="install">
+        <antcall target="all.run" >
+            <param name="build.action" value="install" />
+        </antcall>
+    </target>
+
+    <target name="web">
+        <antcall target="all.run" >
+            <param name="build.action" value="web" />
+        </antcall>
+    </target>
+
+    <target name="clean">
+        <antcall target="all.run" >
+            <param name="build.action" value="clean" />
+        </antcall>
+    </target>
+
+    <target name="all" depends="build, install, web" />
+    
+</project>
