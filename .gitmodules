@@ -1,0 +1,18 @@
+[submodule "Tools"]
+	path = Tools
+	url = https://cocktail-office@github.com/cocktail-office/Tools.git
+[submodule "Frameworks"]
+	path = Frameworks
+	url = https://cocktail-office@github.com/cocktail-office/Frameworks.git
+[submodule "Applications"]
+	path = Applications
+	url = https://cocktail-office@github.com/cocktail-office/Applications.git
+[submodule "Examples"]
+	path = Examples
+	url = https://cocktail-office@github.com/cocktail-office/Examples.git
+[submodule "Tests"]
+	path = Tests
+	url = https://cocktail-office@github.com/cocktail-office/Tests.git
+[submodule "Others"]
+	path = Others
+	url = https://cocktail-office@github.com/cocktail-office/Others.git
