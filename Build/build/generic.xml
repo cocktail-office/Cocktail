@@ -175,6 +175,7 @@ There are many ways to use this script:
         <condition property="manifest.mf" value="${project.dir}/manifest.mf" else="${manifest.mf.temp}" >
             <available file="${project.dir}/manifest.mf" type="file" />
         </condition>
+        <echo message="project.sources.dir : ${project.sources.dir}" />
     </target>
 
     <target name="global.properties" depends="global.environment">
@@ -189,7 +190,7 @@ There are many ways to use this script:
             </fileset>
         </path>
         <mkdir dir="${project.dir}/Libraries" />
-        <mkdir dir="${project.sources.dir}" />
+        <!-- <mkdir dir="${project.sources.dir}" /> -->
         <mkdir dir="${project.dir}/Resources" />
         <mkdir dir="${project.dir}/Components" />
         <mkdir dir="${project.dir}/WebServerResources" />
@@ -484,13 +485,13 @@ There are many ways to use this script:
                 <exclude name=".svn" />
                 <exclude name=".CVS" />
             </classes>
-            <classes dir="${project.sources.dir}">
+            <!-- <classes dir="${project.sources.dir}">
                 <include name="**/*" />
                 <exclude name="**/*.java" />
                 <exclude name="**/*.class" />
                 <exclude name="**/.svn" />
                 <exclude name="**/CVS" />
-            </classes>
+            </classes> -->
             <sources dir="${project.sources.dir}" if="include.source">
                 <include name="**/*.java" />
             </sources>
@@ -519,6 +520,8 @@ There are many ways to use this script:
         <exec dir="${build.root}/${project.name}.woa/Contents/MacOS" executable="/bin/chmod" os="Mac OS X">
             <arg line="a+rx ${project.name}" />
         </exec>
+		<mkdir dir="${build.root}/${project.name}.woa/Contents/WebServerResources/Java" />
+		<jar basedir="${build.classes}" excludes="**/server/**/*.*, **/server/**/" jarfile="${build.root}/${project.name}.woa/Contents/WebServerResources/Java/${project.name}.jar"/>
        <antcall target="${after.build}" />
     </target>
 
